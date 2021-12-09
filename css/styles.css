@@ -1,0 +1,162 @@
+body {
+  font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+  padding: 0.5rem;
+  background-color: rgb(86, 43, 129);
+  color: white;
+}
+
+a {
+  border-radius: 0.25rem;
+  background-color: rgb(86, 43, 129);
+  color: white;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: none;
+  text-decoration: none;
+}
+
+#entries-view {
+  font-size: 23px;
+  padding-left: 2rem;
+}
+
+.code-journal {
+  max-width: 850px;
+  margin: auto;
+}
+
+h1 {
+  padding-left: 1.5rem;
+}
+
+h2 {
+  padding-left: 1rem;
+  font-size: 44px;
+}
+
+h3 {
+  font: bolder;
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
+h3,
+p {
+  padding: 0.5rem;
+}
+
+span {
+  font-size: 75%;
+  padding-left: 3rem;
+}
+
+.column-half img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border: 2px solid lightgray;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+
+.column-half img,
+button,
+input,
+textarea {
+  border-radius: 0.25rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid rgb(150, 66, 233);
+}
+
+.form-actions {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  text-align: right;
+}
+
+.form-actions button {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: none;
+}
+
+.bar-action {
+  display: flex;
+  align-items: center;
+}
+
+.bar-action-left {
+  text-align: left;
+  flex-basis: 50%;
+}
+
+.bar-action-right {
+  text-align: right;
+  flex-basis: 50%;
+}
+
+.bar-action-right button {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: none;
+}
+
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin-bottom: 0; /* Remove margins */
+}
+
+li {
+  margin-bottom: 4rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.display-text h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-text img {
+  max-width: 2rem;
+  height: auto;
+  display: center;
+}
+
+.pen:hover {
+  cursor: pointer;
+}
