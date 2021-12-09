@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal Review</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- header -->
+  <header>
+    <div class="code-journal">
+      <h1>Journal Review<a href="#" id="entries-view">Entries</a></h1>
+    </div>
+  </header>
+
+  <!-- main -->
+  <main>
+    <!-- container -->
+    <div class="container">
+      <!-- entry-form -->
+      <div class="view hidden" id="entry-form" data-view="entry-form">
+        <!-- one bar action -->
+        <div class="bar-action">
+          <h2>New Entry</h2>
+        </div>
+        <!-- entry form -->
+        <form id="contact-form">
+          <!-- inside form row 1 of 2 -->
+          <div class="row">
+            <!-- inside form row column 1 of 2 -->
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg">
+            </div>
+            <!-- inside form row column 2 of 2 -->
+            <div class="column-half">
+              <label for="title">Title</label>
+              <input required name="title" type="text" id="title">
+              <label for="photo-url">Photo URL</label>
+              <input required name="photo-url" type="url" id="photo-url">
+            </div>
+          </div>
+          <!-- inside form row 2 of 2 -->
+          <div class="row">
+            <!-- inside form row column 1 of 1 -->
+            <div class="column-full">
+              <label for="notes">Notes</label>
+              <textarea required rows="6" name="notes" id="notes"></textarea>
+              <div class="form-actions">
+                <button type="submit" id="button">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- entries-view -->
+      <div class="view" id="entries" data-view="entries">
+        <div class="bar-action">
+          <!-- bar action left -->
+          <div class="bar-action-left">
+            <h2>Entries</h2>
+          </div>
+          <!-- bar action right -->
+          <div class="bar-action-right">
+            <a href="#" id="new-entry">NEW</a>
+          </div>
+        </div>
+        <ul class="entries-list"></ul>
+      </div>
+    </div>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
