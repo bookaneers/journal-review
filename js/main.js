@@ -1,5 +1,5 @@
 
-// ---------- FUNCTION TO DISPLAY ITEMS ----------
+// ---------- FUNCTION TO CREATE A NEW ITEM IN HTML ----------
 
 // function to display entry
 function newItem(entry) {
@@ -223,7 +223,7 @@ $entriesList.addEventListener('click', function (event) {
 });
 
 
-// ---------- TO DISPLAY ENTRIES ----------
+// ---------- DISPLAY ENTRIES ----------
 
 // querying the DOM for displying entries
 const $uList = document.querySelector('ul');
@@ -236,7 +236,7 @@ for (let i = 0; i < data.entries.length; i++) {
   $uList.appendChild($item);
 }
 
-// ---------- TO ADD A PICTURE TO THE FORM ----------
+// ---------- ADD A PICTURE TO THE FORM ----------
 
 // querying the placeholder
 const $image = document.querySelector('img');
