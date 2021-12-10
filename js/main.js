@@ -51,7 +51,6 @@ function newItem(entry) {
   const $displayNotes = document.createElement('p');
   $displayNotes.textContent = entry.notes;
 
-
   // append everything together to listedItem
   $listedItem.appendChild($row);
   $row.appendChild($columnHalf1);
@@ -68,7 +67,29 @@ function newItem(entry) {
   return $listedItem;
 }
 
-// ---------- ADDING OR REPLACING AN ENTRY ----------
+// ---------- CHANGING VIEWS ----------
+
+// querying the NEW (entry) button
+const $newEntry = document.querySelector('#new-entry');
+// change view to NEW entry
+$newEntry.addEventListener('click', function (event) {
+  $entryForm.className = 'view';
+  $entries.className = 'view hidden';
+
+  // add message NEW ENTRY in the bar action
+  const $h2 = document.querySelector('h2');
+  $h2.textContent = 'New Entry';
+});
+
+// querying the ENTRIES link in the navigation bar
+const $entriesView = document.querySelector('#entries-view');
+// change view to ENTRIES
+$entriesView.addEventListener('click', function (event) {
+  $entries.className = 'view';
+  $entryForm.className = 'view hidden';
+});
+
+// ---------- (SUBMIT) ADDING OR REPLACING AN ENTRY ----------
 
 // query the entire form
 const $contactForm = document.querySelector('#contact-form');
@@ -82,7 +103,7 @@ $contactForm.addEventListener('submit', function (event) {
   // normally would be.
   event.preventDefault();
 
-// ---------- ADDING AN ENTRY ----------
+  // ---------- ADDING AN ENTRY ----------
 
   // if data.editing is null, it must add the item
   if (data.editing === null) {
@@ -114,7 +135,7 @@ $contactForm.addEventListener('submit', function (event) {
 
   } else {
 
-// ---------- REPLACING AN ENTRY ----------
+    // ---------- REPLACING AN ENTRY ----------
 
     // create a temporary object
     const $updatedEntry = {
@@ -128,7 +149,7 @@ $contactForm.addEventListener('submit', function (event) {
     const $id = $updatedEntry.entryId;
 
     // iterate over database until it finds the correct item
-    for(let i = 0; i<data.entries.length; i++) {
+    for (let i = 0; i < data.entries.length; i++) {
 
       // if item is located them replace item with new info
       if ($id === data.entries[i].entryId) {
@@ -139,7 +160,6 @@ $contactForm.addEventListener('submit', function (event) {
     // querying the ul
     const $entriesListUpdated = document.querySelector('ul');
     $entriesListUpdated.innerHTML = '';
-    console.log('entriesListUpdate: ',$entriesListUpdated);
 
     for (let i = 0; i < data.entries.length; i++) {
       // call function to display entry
@@ -157,43 +177,39 @@ $contactForm.addEventListener('submit', function (event) {
     $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
 
+  // switching views
   $entries.className = 'view';
   $entryForm.className = 'view hidden';
-
 });
 
-
-// ---------- NAVIGATION ----------
-
-// querying the DOM to clicking functions
-// querying the NEW (entry) button
-const $newEntry = document.querySelector('#new-entry');
-
-// querying the ENTRIES link in the navigation bar
-const $entriesView = document.querySelector('#entries-view');
-
-// querying ul (list) for all the lsits
+// ---------- DISPLAY ITEM TO BE EDITED ----------
+// querying ul (list) for all the items
 const $entriesList = document.querySelector('.entries-list');
 
-// data-views
-// new entry form
+// querying to change views
 const $entryForm = document.querySelector('#entry-form');
-// view all the entries
 const $entries = document.querySelector('#entries');
 
 $entriesList.addEventListener('click', function (event) {
+  console.log(event.target.className)
+  // return nothing if user did not click on the pen
   if (event.target.className !== 'pen') {
     return;
   }
+
+  // switching views
   $entryForm.className = 'view';
-  const $h2 = document.querySelector('h2');
-  $h2.textContent = 'Edit Entry';
   $entries.className = 'view hidden';
 
-  const $entryNumber = event.target.getAttribute('data-id');
+  // switch message and bar action
+  const $h2 = document.querySelector('h2');
+  $h2.textContent = 'Edit Entry';
 
+  // querying the data-id for the item to be edited
+  const $entryNumber = event.target.getAttribute('data-id');
   const $number = parseInt($entryNumber);
 
+  // iterate over the database until you find the correct item
   for (let i = 0; i < data.entries.length; i++) {
     if ($number === data.entries[i].entryId) {
       $image.setAttribute('src', data.entries[i].photoURL);
@@ -205,20 +221,6 @@ $entriesList.addEventListener('click', function (event) {
     }
   }
 });
-
-$entriesView.addEventListener('click', function (event) {
-  $entries.className = 'view';
-  $entryForm.className = 'view hidden';
-});
-
-$newEntry.addEventListener('click', function (event) {
-  $entryForm.className = 'view';
-  const $h2 = document.querySelector('h2');
-  $h2.textContent = 'New Entry';
-  $entries.className = 'view hidden';
-});
-
-
 
 
 // ---------- TO DISPLAY ENTRIES ----------
